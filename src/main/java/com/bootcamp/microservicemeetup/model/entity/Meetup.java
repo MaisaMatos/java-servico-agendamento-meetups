@@ -23,12 +23,11 @@ public class Meetup {
 
     @JoinColumn(name = "id_registration")
     @ManyToOne
-
     private Registration registration;
 
     @Column
     private String meetupDate;
 
     @Column
-    private Boolean registered;
+    private Boolean isRegistered;
 }

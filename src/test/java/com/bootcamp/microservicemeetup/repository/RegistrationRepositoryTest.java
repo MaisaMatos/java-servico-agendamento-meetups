@@ -29,8 +29,8 @@ public class RegistrationRepositoryTest {
 
 
     @Test
-    @DisplayName("Should return true when exists an registration already created.")
-    public void returnTrueWhenRegistrationExists() {
+    @DisplayName("Should return true when a registration already created exists..")
+    public void returnTrueWhenRegistrationExistsTest() {
 
         String registration = "123";
 
@@ -43,8 +43,8 @@ public class RegistrationRepositoryTest {
     }
 
     @Test
-    @DisplayName("Should return false when doesn't exists an registration_attribute with a registration already created.")
-    public void returnFalseWhenRegistrationAttributeDoesntExists() {
+    @DisplayName("Should return false when doesn't exists a registration_attribute with a registration already created.")
+    public void returnFalseWhenRegistrationAttributeDoesntExistsTest() {
 
         String registration = "123";
 
@@ -55,7 +55,7 @@ public class RegistrationRepositoryTest {
     }
 
     @Test
-    @DisplayName("Should get an registration by id")
+    @DisplayName("Should get a registration by id")
     public void findByIdTest() {
 
         Registration registration_Class_attribute = createNewRegistration("323");
@@ -82,7 +82,7 @@ public class RegistrationRepositoryTest {
 
     @Test
     @DisplayName("Should delete a registration from the base")
-    public void deleteRegistation() {
+    public void deleteRegistrationTest() {
 
         Registration registration_Class_attribute = createNewRegistration("323");
         entityManager.persist(registration_Class_attribute);

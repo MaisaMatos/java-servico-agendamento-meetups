@@ -42,7 +42,7 @@ public class RegistrationServiceTest {
 
     @Test
     @DisplayName("Should save a registration")
-    public void saveRegistration() {
+    public void saveRegistrationTest() {
 
         // cenario
         Registration registration = createValidRegistration();
@@ -63,8 +63,8 @@ public class RegistrationServiceTest {
 
     @Test
     @DisplayName("Should throw business error when try " +
-            "to save a new registration with a registration duplicated")
-    public void shouldNotSAveAsRegistrationDuplicated() {
+            "to save a new registration with a duplicated one")
+    public void shouldNotSAveAsRegistrationDuplicatedTest() {
 
         Registration registration = createValidRegistration();
         Mockito.when(repository.existsByRegistration(Mockito.any())).thenReturn(true);
@@ -100,10 +100,11 @@ public class RegistrationServiceTest {
     }
 
     @Test
-    @DisplayName("Should return empty when get a registration by id when doesn't exists")
+    @DisplayName("Should return empty when get a registration by id that doesn't exists")
     public void registrationNotFoundByIdTest() {
 
         Integer id = 11;
+
         Mockito.when(repository.findById(id)).thenReturn(Optional.empty());
 
         Optional<Registration> registration  = registrationService.getRegistrationById(id);
@@ -123,8 +124,8 @@ public class RegistrationServiceTest {
     }
 
     @Test
-    @DisplayName("Should update an registration")
-    public void updateRegistration() {
+    @DisplayName("Should update a registration")
+    public void updateRegistrationTest() {
 
         // cenario
         Integer id = 11;
@@ -173,7 +174,7 @@ public class RegistrationServiceTest {
 
     @Test
     @DisplayName("Should get a Registration model by registration attribute")
-    public void getRegistrationByRegistrationAtrb() {
+    public void getRegistrationByRegistrationAtrbTest() {
 
         String registrationAttribute = "1234";
 

@@ -84,7 +84,7 @@ public class RegistrationControllerTest {
     }
 
     @Test
-    @DisplayName("Should throw an exception when not have date enough for the test.")
+    @DisplayName("Should throw an exception when it does not have date enough for the test.")
     public void createInvalidRegistrationTest() throws Exception {
 
         String json  = new ObjectMapper().writeValueAsString(new RegistrationDTO());
@@ -102,8 +102,8 @@ public class RegistrationControllerTest {
     }
 
     @Test
-    @DisplayName("Should throw an exception when try to create a new registration with an registration already created.")
-    public void createRegistrationWithDuplicatedRegistration() throws Exception {
+    @DisplayName("Should throw an exception when try to create a new registration already created.")
+    public void createRegistrationWithDuplicatedRegistrationTest() throws Exception {
 
         RegistrationDTO dto = createNewRegistration();
         String json  = new ObjectMapper().writeValueAsString(dto);
@@ -167,7 +167,7 @@ public class RegistrationControllerTest {
 
     @Test
     @DisplayName("Should delete the registration")
-    public void deleteRegistration() throws Exception {
+    public void deleteRegistrationTest() throws Exception {
 
         BDDMockito.given(registrationService
                 .getRegistrationById(anyInt()))
@@ -198,7 +198,7 @@ public class RegistrationControllerTest {
     }
 
     @Test
-    @DisplayName("Should update when registration info")
+    @DisplayName("Should update registration info")
     public void updateRegistrationTest() throws Exception {
 
         Integer id = 11;
@@ -242,7 +242,7 @@ public class RegistrationControllerTest {
     }
 
     @Test
-    @DisplayName("Should return 404 when try to update an registration no existent")
+    @DisplayName("Should return 404 when try to update a not existent registration")
     public void updateNonExistentRegistrationTest() throws Exception {
 
         String json = new ObjectMapper().writeValueAsString(createNewRegistration());

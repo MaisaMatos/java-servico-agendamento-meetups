@@ -10,4 +10,6 @@ public interface RegistrationRepository extends JpaRepository<Registration, Inte
     boolean existsByRegistration(String registration);
 
     Optional<Registration> findByRegistration(String registrationAtrb);
+
+
 }

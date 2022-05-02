@@ -18,4 +18,8 @@ public interface MeetupRepository extends JpaRepository<Meetup, Integer> {
     );
 
     Page<Meetup> findByRegistration(Registration registration, Pageable pageable );
+
+    boolean existsByRegistration(Registration registration);
+
+
 }

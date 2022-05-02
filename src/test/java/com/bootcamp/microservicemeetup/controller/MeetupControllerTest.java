@@ -100,10 +100,10 @@ public class MeetupControllerTest {
 
 
     @Test
-    @DisplayName("Should return error when try to register a registration already register on a meetup")
+    @DisplayName("Should return error when try to register a registration already done on a meetup")
     public void  meetupRegistrationErrorOnCreateMeetupTest() throws Exception {
 
-        MeetupDTO dto = MeetupDTO.builder().registrationAttribute("123").event("Womakerscode Dados").build();
+        MeetupDTO dto = MeetupDTO.builder().registrationAttribute("123").event("Womakerscode Back-end Java").build();
         String json = new ObjectMapper().writeValueAsString(dto);
 
 

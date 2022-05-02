@@ -1,6 +1,7 @@
 package com.bootcamp.microservicemeetup.service.impl;
 
 import com.bootcamp.microservicemeetup.controller.dto.MeetupFilterDTO;
+import com.bootcamp.microservicemeetup.exception.BusinessException;
 import com.bootcamp.microservicemeetup.model.entity.Meetup;
 import com.bootcamp.microservicemeetup.model.entity.Registration;
 import com.bootcamp.microservicemeetup.repository.MeetupRepository;
@@ -23,6 +24,9 @@ public class MeetupServiceImpl implements MeetupService {
 
     @Override
     public Meetup save(Meetup meetup) {
+        if (repository.existsByRegistration(meetup.getRegistration())) {
+            throw new BusinessException("Meetup already created");
+        }
         return repository.save(meetup);
     }
 
@@ -40,7 +44,6 @@ public class MeetupServiceImpl implements MeetupService {
     public Page<Meetup> find(MeetupFilterDTO filterDTO, Pageable pageable) {
         return repository.findByRegistrationOnMeetup( filterDTO.getRegistration(), filterDTO.getEvent(), pageable );
     }
-
 
     @Override
     public Page<Meetup> getRegistrationsByMeetup(Registration registration, Pageable pageable) {
