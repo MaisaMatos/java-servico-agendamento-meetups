@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.6.5'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id "com.microsoft.azure.azurewebapp" version "1.2.0"
 }
 
 group = 'com.bootcamp.microservicemeetup'
@@ -44,4 +45,21 @@ dependencyManagement {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+azurewebapp {
+	resourceGroup = 'resource-group-1'
+	appName = 'servico-agendamento-meetups'
+	pricingTier = 'P1v2'
+	region = 'Brazil South'
+	runtime {
+		os = 'Windows'
+		webContainer = 'Java SE'
+		javaVersion = 'Java 11'
+	}
+
+	appSettings {}
+	auth {
+		type = 'azure_cli'
+	}
 }
