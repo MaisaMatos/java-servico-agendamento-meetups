@@ -49,17 +49,5 @@ tasks.named('test') {
 
 azurewebapp {
 	resourceGroup = 'resource-group-1'
-	appName = 'servico-agendamento-meetups'
-	pricingTier = 'P1v2'
-	region = 'Brazil South'
-	runtime {
-		os = 'Windows'
-		webContainer = 'Java SE'
-		javaVersion = 'Java 11'
-	}
-
-	appSettings {}
-	auth {
-		type = 'azure_cli'
-	}
+	appName = 'servico-agendamento-meetups-maisa'
 }
